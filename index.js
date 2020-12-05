@@ -2,7 +2,7 @@
  * @Author: hhhhhq
  * @Date: 2020-12-01 15:50:20
  * @LastEditors: hhhhhq
- * @LastEditTime: 2020-12-05 19:49:16
+ * @LastEditTime: 2020-12-05 23:55:52
  * @Description: file content
  */
 const express = require('express')
@@ -37,7 +37,8 @@ app.get('/preview/:key', cors(), (req, res) => {
   })
 })
 
-var port = process.env.PORT || 3000
+var serverPort = 8080;
+var port = process.env.PORT || serverPort
 // console.log(port);
 
 app.listen(port, () => console.log(`server is running on port ${port}`))
