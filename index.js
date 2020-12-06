@@ -2,16 +2,16 @@
  * @Author: hhhhhq
  * @Date: 2020-12-01 15:50:20
  * @LastEditors: hhhhhq
- * @LastEditTime: 2020-12-05 23:55:52
+ * @LastEditTime: 2020-12-06 11:32:24
  * @Description: file content
  */
-const express = require('express')
-const multer  = require('multer')
-const cors = require('cors')
+var express = require('express')
+var multer  = require('multer')
+var cors = require('cors')
 
-const upload = multer({ dest: 'uploads/' })
+var upload = multer({ dest: 'uploads/' })
 
-const app = express()
+var app = express()
 
 app.options('/options', cors())
 app.get('/', (req, res) => {
