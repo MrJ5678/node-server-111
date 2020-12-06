@@ -2,7 +2,7 @@
  * @Author: hhhhhq
  * @Date: 2020-12-01 15:50:20
  * @LastEditors: hhhhhq
- * @LastEditTime: 2020-12-06 11:32:24
+ * @LastEditTime: 2020-12-06 16:43:52
  * @Description: file content
  */
 var express = require('express')
@@ -13,14 +13,13 @@ var upload = multer({ dest: 'uploads/' })
 
 var app = express()
 
-app.options('/options', cors())
 app.get('/', (req, res) => {
   res.send('hello nodejs')
 })
 
-app.post('/upload', cors(), upload.single('xxx'), (req, res) => {
+app.options('/options', cors())
+app.post('/upload', cors(), upload.single('file'), (req, res) => {
   console.log(req.file);
-  // res.set('Access-Control-Allow-Origin', '*')
   // res.json({key: req.file.filename})
   res.send(req.file.filename)
 })
@@ -37,7 +36,7 @@ app.get('/preview/:key', cors(), (req, res) => {
   })
 })
 
-var serverPort = 8080;
+var serverPort = 3000;
 var port = process.env.PORT || serverPort
 // console.log(port);
 
