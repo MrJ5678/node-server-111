@@ -2,7 +2,7 @@
  * @Author: hhhhhq
  * @Date: 2020-12-01 15:50:20
  * @LastEditors: hhhhhq
- * @LastEditTime: 2020-12-06 16:43:52
+ * @LastEditTime: 2020-12-13 10:44:06
  * @Description: file content
  */
 var express = require('express')
@@ -19,9 +19,9 @@ app.get('/', (req, res) => {
 
 app.options('/options', cors())
 app.post('/upload', cors(), upload.single('file'), (req, res) => {
-  console.log(req.file);
-  // res.json({key: req.file.filename})
-  res.send(req.file.filename)
+  let fileName = req.file.filename
+  let object = { id: fileName }
+  res.send(JSON.stringify(object))
 })
 
 app.get('/preview/:key', cors(), (req, res) => {
